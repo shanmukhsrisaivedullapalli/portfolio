@@ -234,64 +234,119 @@
 }
 
 @media screen and (max-width: 420px) {
-    html{
-        width: 100%;
-        height: 100%;
-    }
-    body{
-        width: 100%;
-        min-height: 100%;
-        height: 100%;
-    }
-    .hero {
-        width: 100vw;
-    }
-
+    /* Adjustments for mobile devices */
+    /* Adjust the layout to avoid content overlapping */
     .nav {
         flex-direction: column;
     }
-
+    .email p{
+        width: 50%;
+        white-space: nowrap;
+        overflow: hidden !important;
+        text-overflow: ellipsis;
+    }
     .nav .email-cv {
         width: 100%;
+        font-size: small;
+    }
+    .introcard{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .introcard img{
+        width: 250px;
+        height: 250px;
+    }
+    .introcard h2{
+        font-size: medium;
+    }
+    .introcard h1{
+        width: 80%;
+        font-size: medium;
     }
 
     .nav .social {
         display: none;
     }
 
-    .languages {
-        width: 100vw;
+    .languages, .projects, .contact {
+        width: 100%;
+        padding: 20px; /* Add padding to separate content */
     }
 
-    .projects {
-        width: 100vw;
+    .languages{
+        padding: 0;
+        background-color: #fff; 
     }
-
-    .pltitems{
-        display: grid;
-        grid-template-columns: auto auto auto;
+    .languages h1{
+        font-size: medium;
     }
-    .pitems{
+    .languages img{
+        width: 100px;
+        height: 100px;
+    }
+    
+    .projects h1{
+        font-size: medium !important;
+    }
+    .projects img{
+        width: 100px;
+        height: 100px;
+    }
+    .projects .card{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .contact{
+        background-color: #fff;
+    }
+    .contact h1{
+        font-size: medium;
+    }
+    .contact-form{
+        width: 100%;
+    }
+    .contact form{
+        width: 80%;
+    }
+    .contact form input{
+        width: 300px !important;
+    }
+    .contact form textarea{
+        width: 300px;
+    }
+    .pltitems, .pitems {
         display: grid;
         grid-template-columns: auto auto;
+        gap: 20px; /* Add gap between items */
     }
-
-    .contact {
-        width: 100vw;
+    footer{
+        width: 100%;
+        display: flex;
+        flex-direction: column-reverse;
+        padding: 20px 10px;
+        align-items: center;
+        justify-content: center;
     }
-
-    footer {
-        width: 100vw;
+    footer .social{
+        padding-right: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
     }
 }
-
     </style>
 </head>
 <body>
     <div class="hero">
         <div class="nav">
             <div class="email-cv">
-                <div class="email">Vedullapalli.shanmukhsrisai@gmail.com <button onclick="navigator.clipboard.writeText('vedullapalli.shanmukhsrisai@gmail.com')"><img src="copy.png" alt="copy" class="icon"></button></div>
+                <div class="email"><p>Vedullapalli.shanmukhsrisai@gmail.com</p> <button onclick="navigator.clipboard.writeText('vedullapalli.shanmukhsrisai@gmail.com')"><img src="copy.png" alt="copy" class="icon"></button></div>
                 <button><img src="cv.png" alt="cv" class="icon"></button>
             </div>
             <div class="social">
