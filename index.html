@@ -1,209 +1,368 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vedullapalli Shanmukh Sri Sai</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-	<style>
-        /* Define scrollbar styles */
-        ::-webkit-scrollbar {
-            width: 12px;
+    <title>Shanmukh - Python Devfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Anta&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: "Anta", sans-serif;
+        }
+        a{
+            color: inherit;
+            text-decoration: inherit;
+        }
+        html{
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+        .hero{
+            background-color: #e1e1e1;
+            width: 100vw;
+            height: 100vh;
+        }
+        .nav{
+            width: 90%;
+            height: 10%;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav button{
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+        }
+        .email-cv{
+            display: flex;
+            align-items: center;
+        }
+        .email{
+            display: flex;
+            align-items: center;
+            padding-right: 10px;
+        }
+        .icon{
+            width: 30px;
+            height: 30px;
         }
 
-        ::-webkit-scrollbar-track {
-            background-color: #f1f1f1;
+        .introcard{
+            width: 500px;
+            height: 80%;
+            margin: auto auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        .introcard img{
+            border: 5px solid #fff;
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            filter: grayscale(100%);
+        }
+        .introcard h1{
+            font-size: 3rem;
+            width: 100%;
+            text-align: center;
+        }
+        .introcard button{
+            border: 2px solid black;
+            border-radius: 10px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all .3s ease-in-out;
+        }
+        .introcard button:hover{
+            background-color: #000;
+            color: #fff;
         }
 
-        ::-webkit-scrollbar-thumb {
-            background-color: #888;
-            border-radius: 6px;
+        .languages{
+            width: 100%;
+            height: 40%;
+        }
+        .languages h1{
+            padding-top: 20px;
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 40px;
+        }
+        .pltitems{
+            width: 80%;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            overflow-x: hidden;
+            padding-bottom: 40px;
+        }
+        .pltitems img{
+            width: 90px;
+            height: 90px;
+            object-fit: cover;
         }
 
-        ::-webkit-scrollbar-thumb:hover {
-            background-color: #555;
+        .projects{
+            width: 100vw;
+            height: 40%;
+            background-color: #e1e1e1;
+        }
+        .projects h1{
+            padding-top: 20px;
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 40px;
+        }
+        .pitems{
+            width: 80%;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 40px;
+        }
+        .pitems .card img{
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            object-position: center;
+        }
+        .pitems .card h3{
+            text-align: center;
+        }
+        .pitems .card:last-child img{
+            width: 100px;
+            height: 100px;
         }
 
-        /* For Firefox */
-        html {
-            scrollbar-width: thin;
-            scrollbar-color: #888 #f1f1f1;
+        .contact{
+            width: 100vw;
+            height: 60vh;
         }
+        .contact h1{
+            padding-top: 20px;
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .contact .contact-form{
+            width: 50%;
+            height: 70%;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .contact-form form{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .contact-form form input[type=text]{
+            width: 400px;
+            height: 50px;
+            border: 0;
+            border-bottom: 2px solid black;
+        }
+        .contact-form form textarea{
+            border: 0;
+            border-bottom: 2px solid black;
+            width: 400px;
+            height: 50px;
+        }
+        .contact-form form input[type=submit]{
+            width: 400px;
+            height: 50px;
+            border: 2px solid black;
+            background-color: #000;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        footer{
+            width: 100vw;
+            height: 10vh;
+            background-color: #e1e1e1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        footer p{
+            padding-left: 20px;
+        }
+        footer .social{
+            padding-right: 40px;
+        }
+
+        @media screen and (max-width: 768px) {
+    .hero {
+        width: 100vw;
+    }
+    .email-cv{
+        display: flex;
+        justify-content: space-between;
+    }
+    .nav .social{
+        display: none;
+        pointer-events: none;
+    }
+
+    .languages {
+        width: 100vw;
+    }
+
+    .projects {
+        width: 100vw;
+    }
+
+    .contact {
+        width: 100vw;
+    }
+
+    footer {
+        width: 100vw;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    html{
+        width: 100%;
+        height: 100%;
+    }
+    body{
+        width: 100%;
+        min-height: 100%;
+        height: 100%;
+    }
+    .hero {
+        width: 100vw;
+    }
+
+    .nav {
+        flex-direction: column;
+    }
+
+    .nav .email-cv {
+        width: 100%;
+    }
+
+    .nav .social {
+        display: none;
+    }
+
+    .languages {
+        width: 100vw;
+    }
+
+    .projects {
+        width: 100vw;
+    }
+
+    .pltitems{
+        display: grid;
+        grid-template-columns: auto auto auto;
+    }
+    .pitems{
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+
+    .contact {
+        width: 100vw;
+    }
+
+    footer {
+        width: 100vw;
+    }
+}
+
     </style>
 </head>
-
 <body>
-    <!-- Navbar -->
-    <nav class="bg-gray-800 text-white py-4">
-        <div class="container mx-auto flex justify-between items-center px-4">
-            <a href="#" class="text-2xl font-bold">Vedullapalli Shanmukh Sri Sai</a>
-            <div class="hidden md:flex space-x-4">
-                <a href="#projects" class="hover:text-gray-300">Projects</a>
-                <a href="#certifications" class="hover:text-gray-300">Certifications</a>
-                <a href="#education" class="hover:text-gray-300">Education</a>
-                <a href="mailto:vedullapalli.shanmukhsrisai@gmail.com" class="hover:text-gray-300">Contact</a>
+    <div class="hero">
+        <div class="nav">
+            <div class="email-cv">
+                <div class="email">Vedullapalli.shanmukhsrisai@gmail.com <button onclick="navigator.clipboard.writeText('vedullapalli.shanmukhsrisai@gmail.com')"><img src="copy.png" alt="copy" class="icon"></button></div>
+                <button><img src="cv.png" alt="cv" class="icon"></button>
+            </div>
+            <div class="social">
+                <a href="https://www.linkedin.com/in/vedullapallishanmukh/"><img src="linkedin.png" alt="linkedin" class="icon"></a>
+                <a href="https://www.instagram.com/shanmukhsrisaivedullapalli/"><img src="instagram.png" alt="instagram" class="icon"></a>
+                <a href="https://twitter.com/ShanmukhKing"><img src="twitter.png" alt="twitter" class="icon"></a>
+                <a href="https://www.facebook.com/profile.php?id=100014397243714"><img src="facebook.png" alt="facebook" class="icon"></a>
             </div>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <div class="bg-gray-900 text-white py-20 h-screen flex flex-col justify-center items-center"
-        style="background-image: url('pexels-photo-1714205.webp'); background-size: cover; background-position: center;">
-        <h1 class="text-5xl md:text-6xl font-bold mb-4 text-center">Welcome to my Portfolio</h1>
-        <p class="text-lg md:text-xl">Computer Science and Engineering Student</p>
-        <p class="mt-4 max-w-lg text-lg md:text-xl text-center">I am a final year student at Lovely Professional University, Punjab, with a passion for web development and data science.</p>
-        <a href="mailto:vedullapalli.shanmukhsrisai@gmail.com" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mt-8">Contact Me</a>
-    </div>
-
-    <!-- Projects Section -->
-<div id="projects" class="py-16 bg-gray-100">
-    <div class="container mx-auto p-4">
-        <h2 class="text-3xl font-bold mb-8">Projects</h2>
-        <!-- Add your project details here -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div class="bg-white p-4 rounded-lg shadow-md flex flex-col">
-                <img src="manhwareader.png" alt="Project Image" class="mb-4" style="height: 100%;">
-                <h3 class="text-lg font-bold mb-2">Manga Reader Website</h3>
-                <p class="mb-4">A web platform designed for manga enthusiasts to read their favorite manga series online, offering a user-friendly interface and a vast collection of manga titles.<br><br></p>
-                <a href="#" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-full self-start">GitHub</a>
-            </div>
-            <div class="bg-white p-4 rounded-lg shadow-md flex flex-col">
-                <img src="medminder.png" alt="Project Image" class="mb-4" style="height: 100%;">
-                <h3 class="text-lg font-bold mb-2">Medminder</h3>
-                <p class="mb-4">An innovative solution aimed at assisting elderly individuals in managing their medication schedules. It provides timely reminders and ensures that medications are taken as prescribed, promoting health and well-being.</p>
-                <a href="#" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-full self-start">GitHub</a>
-            </div>
-            <div class="bg-white p-4 rounded-lg shadow-md flex flex-col">
-                <img src="musicplayer.gif" alt="Project Image" class="mb-4" style="height: 100%;">
-                <h3 class="text-lg font-bold mb-2">Music Player</h3>
-                <p class="mb-4">A simple yet powerful music player application built using HTML, CSS, and JavaScript. It offers essential features for playing music files and creating playlists, enhancing the user's music listening experience.</p>
-                <a href="#" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-full self-start">GitHub</a>
-            </div>
-            <div class="bg-white p-4 rounded-lg shadow-md flex flex-col">
-                <img src="redwine.png" alt="Project Image" class="mb-4" style="height: 100%;">
-                <h3 class="text-lg font-bold mb-2">Red Wine Quality Analysis</h3>
-                <p class="mb-4">A data science project focused on predicting the quality of red wine based on its chemical properties. This project utilizes machine learning algorithms to analyze and classify red wine quality, providing valuable insights for wine enthusiasts and producers.</p>
-                <a href="#" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-full self-start">GitHub</a>
-            </div>
+        <div class="introcard">
+            <img src="pic.jpg" alt="pic">
+            <h2>Vedullapalli Shanmukh Sri Sai</h2>
+            <h1>I'm a Data Science Enthusiast and Backend Developer.</h1>
+            <a href="#languages"><button>Know more</button></a>
         </div>
     </div>
-</div>
-
-
-    <!-- Certifications and Education Section -->
-<div class="py-16 bg-gray-100">
-    <div class="container mx-auto px-4 flex flex-col md:flex-row gap-8">
-        <!-- Certifications Section -->
-        <div class="md:w-1/2">
-            <h2 class="text-3xl font-bold mb-8">Certifications</h2>
-            <!-- Add your certifications here -->
-            <div class="flex flex-wrap gap-4">
-                <div class="bg-white p-4 rounded-lg shadow-md">
-                    <div class="flex items-center mb-2">
-                        <img src="coursera_logo.jpg" alt="Coursera Logo" class="mr-2 w-12 h-12">
-                        <h3 class="text-lg font-bold">Django Web Framework</h3>
-                    </div>
-                    <p class="mt-2">Issued Aug 2023</p>
-                </div>
-				<div class="bg-white p-4 rounded-lg shadow-md">
-                    <div class="flex items-center mb-2">
-                        <img src="coursera_logo.jpg" alt="Coursera Logo" class="mr-2 w-12 h-12">
-                        <h3 class="text-lg font-bold">Pandas</h3>
-                    </div>
-                    <p class="mt-2">Issued Aug 2023</p>
-                </div>
-				<div class="bg-white p-4 rounded-lg shadow-md">
-                    <div class="flex items-center mb-2">
-                        <img src="coursera_logo.jpg" alt="Coursera Logo" class="mr-2 w-12 h-12">
-                        <h3 class="text-lg font-bold">Python</h3>
-                    </div>
-                    <p class="mt-2">Issued Aug 2023</p>
-                </div>
-				<div class="bg-white p-4 rounded-lg shadow-md">
-                    <div class="flex items-center mb-2">
-                        <img src="coursera_logo.jpg" alt="Coursera Logo" class="mr-2 w-12 h-12">
-                        <h3 class="text-lg font-bold">Introduction to Back-End Development</h3>
-                    </div>
-                    <p class="mt-2">Issued Aug 2023</p>
-                </div>
-				<div class="bg-white p-4 rounded-lg shadow-md">
-                    <div class="flex items-center mb-2">
-                        <img src="geeksforgeeks_logo.jpg" alt="Coursera Logo" class="mr-2 w-12 h-12">
-                        <h3 class="text-lg font-bold">DSA Self paced</h3>
-                    </div>
-                    <p class="mt-2">Issued Aug 2022</p>
-                </div>
-				<div class="bg-white p-4 rounded-lg shadow-md">
-                    <div class="flex items-center mb-2">
-                        <img src="coursera_logo.jpg" alt="Coursera Logo" class="mr-2 w-12 h-12">
-                        <h3 class="text-lg font-bold">Introduction to Databases for Back-End Development</h3>
-                    </div>
-                    <p class="mt-2">Issued Aug 2023</p>
-                </div>
-				
-				<div class="bg-white p-4 rounded-lg shadow-md">
-                    <div class="flex items-center mb-2">
-                        <img src="coursera_logo.jpg" alt="Coursera Logo" class="mr-2 w-12 h-12">
-                        <h3 class="text-lg font-bold">Programming in Python</h3>
-                    </div>
-                    <p class="mt-2">Issued Aug 2023</p>
-                </div>
-				<div class="bg-white p-4 rounded-lg shadow-md">
-                    <div class="flex items-center mb-2">
-                        <img src="coursera_logo.jpg" alt="Coursera Logo" class="mr-2 w-12 h-12">
-                        <h3 class="text-lg font-bold">Version Control</h3>
-                    </div>
-                    <p class="mt-2">Issued Aug 2023</p>
-                </div>
-				<div class="bg-white p-4 rounded-lg shadow-md">
-                    <div class="flex items-center mb-2">
-                        <img src="ueducation_logo.jpg" alt="Coursera Logo" class="mr-2 w-12 h-12">
-                        <h3 class="text-lg font-bold">Advance Javascript course for all</h3>
-                    </div>
-                    <p class="mt-2">Issued Oct 2022</p>
-                </div>
-				<div class="bg-white p-4 rounded-lg shadow-md">
-                    <div class="flex items-center mb-2">
-                        <img src="ueducation_logo.jpg" alt="Coursera Logo" class="mr-2 w-12 h-12">
-                        <h3 class="text-lg font-bold">JavaScript Basics for all</h3>
-                    </div>
-                    <p class="mt-2">Issued Jul 2022</p>
-                </div>
-				<div class="bg-white p-4 rounded-lg shadow-md">
-                    <div class="flex items-center mb-2">
-                        <img src="ueducation_logo.jpg" alt="Coursera Logo" class="mr-2 w-12 h-12 w-12 h-12">
-                        <h3 class="text-lg font-bold">Upgrad career planning fundamentals</h3>
-                    </div>
-                    <p class="mt-2">Issued Aug 2022</p>
-                </div>
-				
-				
-                <!-- Add more certifications -->
-            </div>
+    <div class="languages">
+        <h1 id="languages">Programming Languages & Technologies</h1>
+        <div class="pltitems">
+            <img src="html-5-logo.png" alt="html-5-logo">
+            <img src="css.png" alt="css">
+            <img src="java-script.png" alt="java-script">
+            <img src="java.png" alt="java">
+            <img src="python.png" alt="python">
+            <img src="django.png" alt="django">
+            <img src="deep-learning.png" alt="deep-learning">
         </div>
-        <!-- Education Section -->
-        <div class="md:w-1/2">
-            <h2 class="text-3xl font-bold mb-8">Education</h2>
-            <!-- Add your education details here -->
-            <div class="bg-white p-4 rounded-lg shadow-md">
-                <h3 class="text-lg font-bold">Lovely Professional University, Punjab</h3>
-                <p class="mt-2">Computer Science and Engineering, 2020-2024</p>
-            </div>
-            <div class="bg-white p-4 rounded-lg shadow-md mt-4">
-                <h3 class="text-lg font-bold">Sri Gayatri Junior College</h3>
-                <p class="mt-2">Intermediate, 2018-2020</p>
-            </div>
-			<div class="bg-white p-4 rounded-lg shadow-md mt-4">
-                <h3 class="text-lg font-bold">Air Force School, Begumpet</h3>
-                <p class="mt-2">10th, 2017-2018</p>
-            </div>
+    </div>
+    <div class="projects">
+        <h1>Projects</h1>
+        <div class="pitems">
+            <a href="https://github.com/shanmukhsrisaivedullapalli/Manhwareader"><div class="card">
+                <img src="article.png" alt="manga reader">
+                <h3>Manga Reader</h3>
+            </div></a>
+            <a href="https://github.com/shanmukhsrisaivedullapalli/Healthcare"><div class="card">
+                <img src="reminder.png" alt="medminder">
+                <h3>Medminder</h3>
+            </div></a>
+            <a href="https://github.com/shanmukhsrisaivedullapalli/MusicPlayer"><div class="card">
+                <img src="vinyl.png" alt="music player">
+                <h3>Music Player</h3>
+            </div></a>
+            <a href="https://github.com/shanmukhsrisaivedullapalli/Red-wine-EDA"><div class="card">
+                <img src="wine.png" alt="Red wine">
+                <h3>Wine Quality Analysis</h3>
+            </div></a>
+            <a href="https://github.com/shanmukhsrisaivedullapalli"><div class="card">
+                <img src="app.png" alt="more">
+                <h3>View more</h3>
+            </div></a>
         </div>
- 
-
-
-
+    </div>
+    <div class="contact">
+        <h1>Contact Me</h1>
+        <div class="contact-form">
+            <form action="#" method="post">
+                <input type="text" placeholder="Subject" name="subject">
+                <textarea name="message" id="message" placeholder="Message"></textarea>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+    <footer>
+        <p>&COPY; 2024 All rights reserved.</p>
+        <div class="social">
+            <a href="https://www.linkedin.com/in/vedullapallishanmukh/"><img src="linkedin.png" alt="linkedin" class="icon"></a>
+            <a href="https://www.instagram.com/shanmukhsrisaivedullapalli/"><img src="instagram.png" alt="instagram" class="icon"></a>
+            <a href="https://twitter.com/ShanmukhKing"><img src="twitter.png" alt="twitter" class="icon"></a>
+            <a href="https://www.facebook.com/profile.php?id=100014397243714"><img src="facebook.png" alt="facebook" class="icon"></a>
+        </div>
+    </footer>
 </body>
-
 </html>
